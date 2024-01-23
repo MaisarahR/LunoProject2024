@@ -7,11 +7,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 //To arrange print order.
-export async function finalResult (){  //This function is defined to calculate and print the final result. It is marked as async because it uses await for asynchronous operations.
+export async function finalResultA (){  //This function is defined to calculate and print the final result. It is marked as async because it uses await for asynchronous operations.
   let lunoMYR = await lunoBTCMY();     //These lines declare variables and assign them the results of asynchronous function calls using await.
-  let convertToUSD = await convertUSD();
-  let lunoUSD = await lunoBTCUSD(lunoMYR,convertToUSD); //export async function lunoBTCUSD(lunoBTCMY, convertUSD)
-  let binanceUSD = await binanceBTCUSD();
+   let convertToUSD = await convertUSD();
+   let lunoUSD = await lunoBTCUSD(lunoMYR,convertToUSD); //export async function lunoBTCUSD(lunoBTCMY, convertUSD)
+   let binanceUSD = await binanceBTCUSD();
   let priceDiffInUSD = await priceDifference(binanceUSD, lunoUSD); //priceDifference(binanceBTCUSD, lunoBTCUSD)
   let lunoPremium = await percentageDifference(priceDiffInUSD, lunoUSD); //percentageDifference(priceDifference, lunoBTCUSD)
   console.log("BTCMYR price on Luno:".padEnd(30) + `MYR${lunoMYR}`);
@@ -21,7 +21,7 @@ export async function finalResult (){  //This function is defined to calculate a
   console.log("Price difference:".padEnd(30) + `USD${priceDiffInUSD}`); 
   console.log("Luno premium:".padEnd(30) + `${lunoPremium}%`) 
 }
-finalResult(); //Finally, the finalResult function is invoked to execute the entire process.
+finalResultA(); //Finally, the finalResult function is invoked to execute the entire process.
 
 
 
